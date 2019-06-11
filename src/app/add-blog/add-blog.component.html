@@ -1,0 +1,32 @@
+<div class="add-blog-container">
+    <div class="form-group">
+        <label for="usr" style="color:white;">Enter Title:</label>
+        <input required type="text" class="form-control" id="usr" [(ngModel)]="title" >
+      </div>
+      <div style="padding-top: 2em"></div>
+
+      <div class="form-group">
+          <label for="comment"  style="color:white;">Description:</label>
+          <textarea required [(ngModel)]="description" class="form-control" rows="5" id="comment"></textarea>
+        </div>
+        <div style="padding-top: 2em"></div>
+        <label  style="color:white;">Enter Content:</label>
+        <div class="custom-quill-container">
+<quill-editor [(ngModel)]="htmlText"
+  placeholder="Enter Text"
+  [modules]="quillConfig"
+  (onSelectionChanged)="onSelectionChanged($event)"
+  (onContentChanged)="onContentChanged($event)"></quill-editor>
+
+  <div>
+    <pre>{{htmlText}}</pre>
+  </div>
+</div>
+<div class="row">
+    <div class="col-sm-1"><button type="button" class="btn btn-primary btn-md">Save</button></div>
+    <!-- <div class="col-sm-1"></div> -->
+    <div class="col-sm-1"><button type="button" class="btn btn-primary btn-md">Cancel</button></div>
+  </div>
+
+
+</div>

@@ -1,0 +1,27 @@
+
+  <div style="padding-top: 2em"></div>
+  <div class="container">
+      <div class="row">
+          <div class="col-sm" #blogItems *ngFor="let blog of allBlogs.blogs; let blogIndex=index">
+              <div class="card text-white bg-dark mb-3">
+                  <img class="card-img-top custom-card-img-top" src="/assets/blogcard/blog1.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">{{blog.title}}</h5>
+                    <div class="card-text" #items></div>
+                  </div>
+                  <ul class="list-group list-group-flush custom-list-group">
+                    <li class="list-group-item-dark custom-list-group-item">Cras justo odio</li>
+                    <li class="list-group-item-dark custom-list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item-dark custom-list-group-item">Vestibulum at eros</li>
+                  </ul>
+                  <div class="card-body">
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                  </div>
+                </div>
+              
+          </div>
+      </div>
+    </div>
+
+   
