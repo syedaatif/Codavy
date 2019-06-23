@@ -10,16 +10,16 @@ export class CommonService {
   constructor(public http: Http) { }
 
   saveUser(user) {
-    return this.http.post('http://localhost:8080/api/SaveUser/', user)
+    return this.http.post('https://mysterious-retreat-36308.herokuapp.com/api/SaveUser/', user)
       .map((response: Response) => response.json());
   }
 
   GetUser() {
-    return this.http.get('http://localhost:3000/api/getUser/')
+    return this.http.get('https://mysterious-retreat-36308.herokuapp.com/api/getUser/')
       .map((response: Response) => response.json());
   }
   deleteUser(id) {
-    return this.http.post('http://localhost:8080/api/deleteUser/', { 'id': id })
+    return this.http.post('https://mysterious-retreat-36308.herokuapp.com/api/deleteUser/', { 'id': id })
       .map((response: Response) => response.json());
   }
 
