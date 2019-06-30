@@ -11,13 +11,15 @@ import {HttpModule} from '@angular/http';
 import { AddBlogComponent } from './add-blog/add-blog.component';
 import { QuillModule } from 'ngx-quill';
 import { MaintainBlogsComponent } from './maintain-blogs/maintain-blogs.component';
+import { ViewBlogComponent } from './view-blog/view-blog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BlogsComponent,
     AddBlogComponent,
-    MaintainBlogsComponent
+    MaintainBlogsComponent,
+    ViewBlogComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {QuillInitializeService} from '../services/quillInitialize.service';
 import 'quill-mention';
 import 'quill-emoji';
+import { CommonService } from '../blogs/common.service';
 
 @Component({
   selector: 'app-add-blog',
@@ -18,6 +19,17 @@ export class AddBlogComponent implements OnInit {
   ngOnInit () {
 
   }
+  onSave = function () {
+    let blog = {mode: 'Save', title: this.title, description: this.description, content: this.htmlText, date: new Date().toString()};
+    console.log(blog);    this.newService.saveUser(blog)
+      .subscribe(data => {
+        alert(data.data);
+
+        this.ngOnInit();
+      }
+        , error => this.errorMessage = error)
+
+  }
 
   atValues = [
     { id: 1, value: 'Fredrik Sundqvist', link: 'https://google.com' },
@@ -29,6 +41,7 @@ export class AddBlogComponent implements OnInit {
   ]
 
   quillConfig={
+
     toolbar: {
       container: [
         ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
@@ -105,7 +118,8 @@ export class AddBlogComponent implements OnInit {
  
 
   constructor(
-    public quillInitializeService: QuillInitializeService
+    public quillInitializeService: QuillInitializeService,
+    public newService: CommonService
   ){
 
   }

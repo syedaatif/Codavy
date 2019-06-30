@@ -6,4 +6,5 @@ interface IBlog {
     date: string;
     description: string;
     content: string;
+    id : string;
 }

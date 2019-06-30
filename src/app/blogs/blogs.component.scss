@@ -10,3 +10,33 @@
 .custom-card-img-top {
     height: 12em;
 }
+// .scrolling-wrapper {
+//     overflow-x: scroll;
+//     // overflow-y: hidden;
+//     white-space: nowrap;
+  
+//     .cardy {
+//       display: inline-block;
+//     }
+
+    
+  // }
+  /* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

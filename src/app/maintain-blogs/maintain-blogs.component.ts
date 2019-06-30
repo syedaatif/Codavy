@@ -19,7 +19,8 @@ export class MaintainBlogsComponent implements OnInit {
   }
   onSave = function (user, isValid: boolean) {
     user.mode = this.valbutton;
-    user.date = new Date();
+    user.date = new Date().toString();
+    console.log(user);
     this.newService.saveUser(user)
       .subscribe(data => {
         alert(data.data);
@@ -30,6 +31,7 @@ export class MaintainBlogsComponent implements OnInit {
 
   }
   edit = function (kk) {
+console.log(kk);
     this.id = kk._id;
     this.title = kk.title;
     this.description = kk.description;

@@ -5,8 +5,7 @@ import { CommonService } from './common.service';
 @Component({
   selector: 'app-blogs',
   templateUrl: './blogs.component.html',
-  styleUrls: ['./blogs.component.scss'],
-  providers: [CommonService]
+  styleUrls: ['./blogs.component.scss']
 })
 @Directive({
   selector: '[runDummyFunc]'
@@ -15,7 +14,7 @@ export class BlogsComponent implements OnInit, AfterViewInit, OnChanges {
   @ViewChild('view0', { read: ElementRef, static: false }) view0:ElementRef;
   @ViewChildren('items') items: QueryList<ElementRef>;
 
-  public allBlogs: IBlogs = {blogs:[{title: "", description: "", date: "" , content: ""}]};
+  public allBlogs: IBlogs = {blogs:[{title: "", description: "", date: "" , content: "", id: ""}]};
  
   // content: "cc"
   // date: "2019-06-08T18:40:54.895Z"
@@ -27,6 +26,7 @@ export class BlogsComponent implements OnInit, AfterViewInit, OnChanges {
    }
   Repdata;
   valbutton = 'Save';
+  message;
 
   ngOnInit() {
     console.log(this.Repdata);
@@ -34,12 +34,13 @@ export class BlogsComponent implements OnInit, AfterViewInit, OnChanges {
       console.log(this.Repdata);
             if (this.Repdata !== undefined) {
         this.Repdata.forEach((element, i) => {
-          this.allBlogs.blogs[i] = {title: "", description: "", date: "" , content: ""};
+          this.allBlogs.blogs[i] = {title: "", description: "", date: "" , content: "", id : ""};
           this.allBlogs.blogs[i].title = element.title ;
           console.log(this.allBlogs.blogs[i].title + ''+ element.title );
           this.allBlogs.blogs[i].date = element.date ;
           this.allBlogs.blogs[i].description = element.description;
           this.allBlogs.blogs[i].content = element.content;
+          this.allBlogs.blogs[i].id = element._id;
           }); 
       }
     });
@@ -49,11 +50,17 @@ export class BlogsComponent implements OnInit, AfterViewInit, OnChanges {
     // this.allBlogs.blogs[2] = {title: 'Third Post', description: 'hello this post is post 3', date: '10' ,content: '<button>post3</button>'};
   }
 
+  selectedBlog(blog) {
+this.newService.activeBlogStore(blog);
+console.log(this.newService.activeBlogRetrieve());
+  }
+
+
 ngOnChanges() {
   this.newService.GetUser().subscribe(data => {this.Repdata = data;
     if (this.Repdata !== undefined) {
       this.Repdata.forEach((element, i) => {
-        this.allBlogs.blogs[i] = {title: "", description: "", date: "" , content: ""};
+        this.allBlogs.blogs[i] = {title: "", description: "", date: "" , content: "", id: ""};
         this.allBlogs.blogs[i].title = element.title ;
         console.log(this.allBlogs.blogs[i].title + ''+ element.title );
         this.allBlogs.blogs[i].date = element.date ;
