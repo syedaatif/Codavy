@@ -13,6 +13,8 @@ import { CommonService } from '../blogs/common.service';
 export class AddBlogComponent implements OnInit {
   public title:string = "";
   public description:string = "";
+  public base64textString = [];
+  public authorName:string = "";
 
   htmlText ="<p>Testing</p>"
   hasFocus = false;
@@ -20,7 +22,7 @@ export class AddBlogComponent implements OnInit {
 
   }
   onSave = function () {
-    let blog = {mode: 'Save', title: this.title, description: this.description, content: this.htmlText, date: new Date().toString()};
+    let blog = {mode: 'Save', title: this.title, description: this.description, content: this.htmlText, date: new Date().toString(), titleImage: this.base64textString[0], authorName: this.authorName};
     console.log(blog);    this.newService.saveUser(blog)
       .subscribe(data => {
         alert(data.data);
@@ -29,6 +31,21 @@ export class AddBlogComponent implements OnInit {
       }
         , error => this.errorMessage = error)
 
+  }
+
+  onUploadChange(evt: any) {
+    const file = evt.target.files[0];
+  
+    if (file) {
+      const reader = new FileReader();
+  
+      reader.onload = this.handleReaderLoaded.bind(this);
+      reader.readAsBinaryString(file);
+    }
+  }
+  
+  handleReaderLoaded(e) {
+    this.base64textString.push('data:image/png;base64,' + btoa(e.target.result));
   }
 
   atValues = [

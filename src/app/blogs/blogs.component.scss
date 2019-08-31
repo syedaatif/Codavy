@@ -8,7 +8,9 @@
     color: white;
 }
 .custom-card-img-top {
-    height: 12em;
+    height: 30vh;
+    object-fit: cover;
+    object-position: center;
 }
 // .scrolling-wrapper {
 //     overflow-x: scroll;

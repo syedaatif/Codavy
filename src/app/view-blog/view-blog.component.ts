@@ -10,8 +10,11 @@ export class ViewBlogComponent implements OnInit {
 public Repdata;
 public selectedBlog;
   constructor(public newService: CommonService) { }
-  public allBlogs: IBlogs = {blogs:[{title: "", description: "", date: "" , content: "", id: ""}]};
+  public allBlogs: IBlogs = {blogs:[{title: "", description: "", date: "" , content: "", id: "", titleImage: "", authorName: ""}]};
   ngOnInit() {
+    this.selectedBlog = this.newService.activeBlogRetrieve();
+    console.log(this.selectedBlog);
+    document.getElementById("blogContent").innerHTML = this.selectedBlog.content;
     // this.newService.currentMessage.subscribe(message => this.selectedBlog = message);
   //  this.selectedBlog = this.newService.activeBlogRetrieve();
     // this.newService.GetUser().subscribe(data => {this.Repdata = data;
@@ -30,7 +33,7 @@ public selectedBlog;
   }
   trigger() {
     this.selectedBlog = this.newService.activeBlogRetrieve();
-    console.log(this.newService.activeBlogRetrieve());
+    // console.log(this.newService.activeBlogRetrieve());
   }
 
 }

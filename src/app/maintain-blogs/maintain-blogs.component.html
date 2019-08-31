@@ -22,7 +22,7 @@
       <tr>
         <td>content</td>
         <td>
-          <input name="content" type="text" required [(ngModel)]="content" />
+          <input name="content" type="text" required [(ngModel)]="content"  />
         </td>
       </tr>
 
@@ -50,7 +50,7 @@
       <td>{{ind + 1}}</td>
       <td>{{kk.title}}</td>
       <td>{{kk.description}}</td>
-      <td>{{kk.content}}</td>
+      <td>{{kk.content.substr(1,50)}}</td>
       <td>{{kk.date}}</td>
       <td>
         <a (click)="edit(kk)" style="color:blueviolet">Edit</a>

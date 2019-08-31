@@ -12,6 +12,8 @@ import { AddBlogComponent } from './add-blog/add-blog.component';
 import { QuillModule } from 'ngx-quill';
 import { MaintainBlogsComponent } from './maintain-blogs/maintain-blogs.component';
 import { ViewBlogComponent } from './view-blog/view-blog.component';
+import { AboutMeComponent } from './about-me/about-me.component';
+import { RadialChartComponent } from './radial-chart/radial-chart.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ViewBlogComponent } from './view-blog/view-blog.component';
     BlogsComponent,
     AddBlogComponent,
     MaintainBlogsComponent,
-    ViewBlogComponent
+    ViewBlogComponent,
+    AboutMeComponent,
+    RadialChartComponent
   ],
   imports: [
     BrowserModule,

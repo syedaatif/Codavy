@@ -1,55 +1,29 @@
 
   <div style="padding-top: 2em"></div>
-  <!-- <label style="color:white">Latest Blogs:</label> -->
-  <div class="container text-center"> <span style = "color: white" class="label label-default" >Latest Posts:</span></div>
- 
-  <!-- <div class="container" >
-      <div class="row row-horizon" style="height: 410px">
-          <div class="col-sm cardy" #blogItems *ngFor="let blog of allBlogs.blogs; let blogIndex=index">
-              <div class="card text-white bg-dark mb-3">
-                  <img class="card-img-top custom-card-img-top" src="/assets/blogcard/blog1.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">{{blog.title}}</h5>
-                    <div class="card-text" #items></div>
-                  </div>
-                  <ul class="list-group list-group-flush custom-list-group">
-                    <li class="list-group-item-dark custom-list-group-item">Cras justo odio</li>
-                    <li class="list-group-item-dark custom-list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item-dark custom-list-group-item">Vestibulum at eros</li>
-                  </ul>
-                  <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                  </div>
-                </div>
-              
-          </div>
-      </div>
-    </div> -->
+  
     <div style="padding-top: 2em"></div>
 
-    <div class="container text-center"> <span style = "color: white" class="label label-default" >Latest Posts:</span></div>
+    <div class="container text-center"> <span style = "color: white; font-family: cursive;
+      font-size: x-large;" class="label label-default" >Latest Posts:</span></div>
  
-  <div id="demo" class="container carousel slide" data-ride="carousel" *ngIf="allBlogs.blogs.length != 0">
+  <div style="cursor: pointer;" id="demo" class="container carousel slide" data-ride="carousel" *ngIf="allBlogs.blogs.length != 0">
       <ol class="carousel-indicators" >
           <li data-target="#demo" *ngFor="let blog of allBlogs.blogs; let blogIndex=index" [attr.data-slide-to]="blogIndex"  [ngClass]="blogIndex == 0 ? 'active' : ''"></li>
         </ol>
-      <div class="row carousel-inner" style="height: 410px">
+      <div class="row carousel-inner" style="height: max-content; width: auto">
           <div routerLink="/viewblog" (click) = "selectedBlog(blog)"  #blogItems *ngFor="let blog of allBlogs.blogs; let blogIndex=index"[ngClass]="blogIndex == 0 ? 'col-sm carousel-item active' : 'col-sm carousel-item'">
               <div class="card text-white bg-dark mb-3">
-                  <img class="card-img-top custom-card-img-top" src="/assets/blogcard/blog1.jpg" alt="Card image cap">
+                  <img class="card-img-top custom-card-img-top" src="{{blog.titleImage}}" alt="Card image cap">
                   <div class="card-body">
-                    <h5 class="card-title">{{blog.title}}</h5>
-                    <div class="card-text" #items></div>
+                    <h5 style="text-align: center" class="card-title">{{blog.title}}:</h5>
+                    <div style="text-align: center" class="card-text" #items>
+                        <p>{{blog.description.substr(0,250)}}...</p>
+                    </div>
                   </div>
-                  <ul class="list-group list-group-flush custom-list-group">
-                    <li class="list-group-item-dark custom-list-group-item">Cras justo odio</li>
-                    <li class="list-group-item-dark custom-list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item-dark custom-list-group-item">Vestibulum at eros</li>
-                  </ul>
+                
                   <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
+                    <div>by: {{blog.authorName}}</div>
+                    <div>{{blog.date.split("T")[0]}}</div>
                   </div>
                 </div>
               
@@ -62,5 +36,3 @@
           <span class="carousel-control-next-icon"></span>
         </a>
     </div>
-
-   

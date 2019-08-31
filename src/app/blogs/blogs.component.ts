@@ -14,7 +14,7 @@ export class BlogsComponent implements OnInit, AfterViewInit, OnChanges {
   @ViewChild('view0', { read: ElementRef, static: false }) view0:ElementRef;
   @ViewChildren('items') items: QueryList<ElementRef>;
 
-  public allBlogs: IBlogs = {blogs:[{title: "", description: "", date: "" , content: "", id: ""}]};
+  public allBlogs: IBlogs = {blogs:[{title: "", description: "", date: "" , content: "", id: "", titleImage: "", authorName: ""}]};
  
   // content: "cc"
   // date: "2019-06-08T18:40:54.895Z"
@@ -41,6 +41,8 @@ export class BlogsComponent implements OnInit, AfterViewInit, OnChanges {
           this.allBlogs.blogs[i].description = element.description;
           this.allBlogs.blogs[i].content = element.content;
           this.allBlogs.blogs[i].id = element._id;
+          this.allBlogs.blogs[i].titleImage = element.titleImage;
+          this.allBlogs.blogs[i].authorName = element.authorName;
           }); 
       }
     });
@@ -66,6 +68,8 @@ ngOnChanges() {
         this.allBlogs.blogs[i].date = element.date ;
         this.allBlogs.blogs[i].description = element.description;
         this.allBlogs.blogs[i].content = element.content;
+        this.allBlogs.blogs[i].titleImage = element.titleImage;
+        this.allBlogs.blogs[i].authorName = element.authorName;
         }); 
     }
    
