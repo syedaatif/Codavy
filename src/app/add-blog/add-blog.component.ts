@@ -16,7 +16,7 @@ export class AddBlogComponent implements OnInit {
   public base64textString = [];
   public authorName:string = "";
 
-  htmlText ="<p>Testing</p>"
+  htmlText =""
   hasFocus = false;
   ngOnInit () {
 
@@ -31,6 +31,14 @@ export class AddBlogComponent implements OnInit {
       }
         , error => this.errorMessage = error)
 
+  }
+
+  public onReset():void {
+    this.title= "";
+    this.description = "";
+    this.base64textString = [];
+    this.authorName = "";
+    this.htmlText =""
   }
 
   onUploadChange(evt: any) {

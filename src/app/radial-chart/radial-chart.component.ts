@@ -8,7 +8,7 @@ import * as d3Selection from 'd3-selection';
   styleUrls: ['./radial-chart.component.scss']
 })
 export class RadialChartComponent implements OnInit, OnChanges {
-  @ViewChild('radialChart') public radialChart: ElementRef;
+  @ViewChild('radialChart',{static: true}) public radialChart: ElementRef;
   private svg: any;
   @Input() skillName: string = ''
   @Input() percentage: number = 0;
@@ -55,13 +55,20 @@ export class RadialChartComponent implements OnInit, OnChanges {
       .outerRadius(50)
       .startAngle(0).endAngle(this.getCircumference(1));
       this.appendPathOnSVG(totalHours, 'translate(50,50)', '#212529');
-      this.appendPathOnSVG(typeSizeHoursCircle, 'translate(50,50)', '#F0203F', 'typseSizeHoursRadial');
+      const innertotalHours = d3.arc()
+      .innerRadius(0)
+      .outerRadius(34)
+      .startAngle(0).endAngle(this.getCircumference(1));
+      this.appendPathOnSVG(innertotalHours, 'translate(50,50)', '#E7B329');
+      this.appendPathOnSVG(totalHours, 'translate(50,50)', '#212529');
+      this.appendPathOnSVG(typeSizeHoursCircle, 'translate(50,50)', '#E7B329', 'typseSizeHoursRadial');
       
     
   }
 
   public renderRadialText() {
-    this.appendTextOnSVG(50, 50, '#F0203F', '15', this.skillName);
+    this.appendTextOnSVG(50, 50, '#2B3137', '15', this.skillName);
+    this.appendTextOnSVG(50, 70, '#2B3137', '15', ''+(this.percentage)* 100 + '%');
 
   
   }

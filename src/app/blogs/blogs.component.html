@@ -1,4 +1,4 @@
-
+<!-- 
   <div style="padding-top: 2em"></div>
   
     <div style="padding-top: 2em"></div>
@@ -26,6 +26,76 @@
                     <div>{{blog.date.split("T")[0]}}</div>
                   </div>
                 </div>
+              
+          </div>
+      </div>
+      <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+    -->
+
+    <div style="padding-top: 2em"></div>
+  
+    <div style="padding-top: 2em"></div>
+
+    <div class="container text-center"> <span style = "color: white; font-family: cursive;
+      font-size: x-large;" class="label label-default" >Latest Posts:</span></div>
+ 
+  <div style="cursor: pointer;text-align: center; text-align:-webkit-center;" id="demo" class="container carousel slide" data-ride="carousel" *ngIf="allBlogsSetws != 0">
+      <ol class="carousel-indicators" >
+          <li data-target="#demo" *ngFor="let blogSet of allBlogsSets; let blogIndex=index" [attr.data-slide-to]="blogIndex"  [ngClass]="blogIndex == 0 ? 'active' : ''"></li>
+        </ol>
+      <div class="row carousel-inner">
+          <div routerLink="/viewblog"   #blogItems *ngFor="let blogSet of allBlogsSets; let blogIndex=index"[ngClass]="blogIndex == 0 ? 'col-sm carousel-item active' : 'col-sm carousel-item'">
+            <section class="details-card">
+                <div class="container">
+                    <div class="row">
+            <div class="col-md-4">
+                <div class="card-content">
+                    <div class="card-img">
+                        <img src={{blogSet[0]?.titleImage}} alt="">
+                       
+                    </div>
+                    <div class="card-desc">
+                        <h3>{{blogSet[0]?.title}}</h3>
+                        <p>{{blogSet[0]?.description}}</p>
+                            <a (click) = "selectedBlog(blogSet[0])" class="btn-card">Read</a>   
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card-content">
+                    <div class="card-img">
+                        <img src={{blogSet[1]?.titleImage}} alt="">
+                        
+                    </div>
+                    <div class="card-desc">
+                        <h3>{{blogSet[1]?.title}}</h3>
+                        <p>{{blogSet[1]?.description}}</p>
+                            <a class="btn-card" (click) = "selectedBlog(blogSet[1])">Read</a>   
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card-content">
+                    <div class="card-img">
+                        <img src={{blogSet[2]?.titleImage}} alt="">
+                       
+                    </div>
+                    <div class="card-desc">
+                        <h3>{{blogSet[2]?.title}}</h3>
+                        <p>{{blogSet[2]?.description}}</p>
+                            <a (click) = "selectedBlog(blogSet[2])"  class="btn-card">Read</a>   
+                    </div>
+                </div>
+            </div> 
+          </div>
+        </div>
+            </section>
               
           </div>
       </div>
