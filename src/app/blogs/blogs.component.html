@@ -50,46 +50,46 @@
           <li data-target="#demo" *ngFor="let blogSet of allBlogsSets; let blogIndex=index" [attr.data-slide-to]="blogIndex"  [ngClass]="blogIndex == 0 ? 'active' : ''"></li>
         </ol>
       <div class="row carousel-inner">
-          <div routerLink="/viewblog"   #blogItems *ngFor="let blogSet of allBlogsSets; let blogIndex=index"[ngClass]="blogIndex == 0 ? 'col-sm carousel-item active' : 'col-sm carousel-item'">
+          <div   #blogItems *ngFor="let blogSet of allBlogsSets; let blogIndex=index"[ngClass]="blogIndex == 0 ? 'col-sm carousel-item active' : 'col-sm carousel-item'">
             <section class="details-card">
                 <div class="container">
                     <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4" *ngIf="blogSet[0]">
                 <div class="card-content">
-                    <div class="card-img">
+                    <div class="card-img max-height-20">
                         <img src={{blogSet[0]?.titleImage}} alt="">
                        
                     </div>
-                    <div class="card-desc">
-                        <h3>{{blogSet[0]?.title}}</h3>
-                        <p>{{blogSet[0]?.description}}</p>
-                            <a (click) = "selectedBlog(blogSet[0])" class="btn-card">Read</a>   
+                    <div class="card-desc min-max-height">
+                        <label class="blog-title-label">{{blogSet[0]?.title}}</label>
+                        <p>{{blogSet[0]?.description.substr(0,100)}}</p>
+                            <a routerLink="/viewblog" (click) = "selectedBlog(blogSet[0])" class="btn-card">Read</a>   
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" *ngIf="blogSet[1]">
                 <div class="card-content">
-                    <div class="card-img">
+                    <div class="card-img max-height-20">
                         <img src={{blogSet[1]?.titleImage}} alt="">
                         
                     </div>
-                    <div class="card-desc">
-                        <h3>{{blogSet[1]?.title}}</h3>
-                        <p>{{blogSet[1]?.description}}</p>
-                            <a class="btn-card" (click) = "selectedBlog(blogSet[1])">Read</a>   
+                    <div class="card-desc min-max-height">
+                        <label class="blog-title-label">{{blogSet[1]?.title}}</label>
+                        <p>{{blogSet[1]?.description.substr(0,100)}}</p>
+                            <a routerLink="/viewblog" class="btn-card" (click) = "selectedBlog(blogSet[1])">Read</a>   
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" *ngIf="blogSet[2]">
                 <div class="card-content">
-                    <div class="card-img">
+                    <div class="card-img max-height-20">
                         <img src={{blogSet[2]?.titleImage}} alt="">
                        
                     </div>
-                    <div class="card-desc">
-                        <h3>{{blogSet[2]?.title}}</h3>
-                        <p>{{blogSet[2]?.description}}</p>
-                            <a (click) = "selectedBlog(blogSet[2])"  class="btn-card">Read</a>   
+                    <div class="card-desc min-max-height">
+                        <label class="blog-title-label">{{blogSet[2]?.title}}</label>
+                        <p>{{blogSet[2]?.description.substr(0,100)}}</p>
+                            <a routerLink="/viewblog" (click) = "selectedBlog(blogSet[2])"  class="btn-card">Read</a>   
                     </div>
                 </div>
             </div> 
