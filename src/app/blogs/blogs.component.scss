@@ -18,7 +18,12 @@
   max-height: 300px;
 }
 .max-height-20 {
-  max-height: 20vh;
+  height: 100px;
+}
+.description-block {
+  height: 100px;
+  overflow: hidden;
+  // white-space:nowrap
 }
 .custom-list-group {
     padding-left: 2em;

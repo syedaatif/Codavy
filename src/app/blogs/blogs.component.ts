@@ -89,7 +89,7 @@ export class BlogsComponent implements OnInit, AfterViewInit, OnChanges {
     // this.allBlogs.blogs[4] = {title: 'Fifth Post', description: 'hello this post is post 5', date: '9' ,content: 'Hello content5', titleImage: "/assets/me.png"};
     // this.allBlogs.blogs[5] = {title: 'Sixth Post', description: 'hello this post is post 6', date: '10' ,content: 'Hello content 6', titleImage: "/assets/me.png"};
    
-    console.log(this.allBlogsSets);
+    // console.log(this.allBlogsSets);
   }
 
   selectedBlog(blog) {

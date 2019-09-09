@@ -1,10 +1,11 @@
-import { Component, OnInit,AfterViewInit } from '@angular/core';
+import { Component, OnInit,AfterViewInit, ViewEncapsulation } from '@angular/core';
  import { CommonService } from '../blogs/common.service';
 
 @Component({
   selector: 'app-view-blog',
   templateUrl: './view-blog.component.html',
-  styleUrls: ['./view-blog.component.scss']
+  styleUrls: ['./view-blog.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ViewBlogComponent implements OnInit {
 public Repdata;

@@ -62,7 +62,7 @@
                     </div>
                     <div class="card-desc min-max-height">
                         <label class="blog-title-label">{{blogSet[0]?.title}}</label>
-                        <p>{{blogSet[0]?.description.substr(0,100)}}</p>
+                        <p class="description-block">{{blogSet[0]?.description.substr(0,100)}}...</p>
                             <a routerLink="/viewblog" (click) = "selectedBlog(blogSet[0])" class="btn-card">Read</a>   
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                     </div>
                     <div class="card-desc min-max-height">
                         <label class="blog-title-label">{{blogSet[1]?.title}}</label>
-                        <p>{{blogSet[1]?.description.substr(0,100)}}</p>
+                        <p class="description-block">{{blogSet[1]?.description.substr(0,100)}}...</p>
                             <a routerLink="/viewblog" class="btn-card" (click) = "selectedBlog(blogSet[1])">Read</a>   
                     </div>
                 </div>
@@ -88,7 +88,7 @@
                     </div>
                     <div class="card-desc min-max-height">
                         <label class="blog-title-label">{{blogSet[2]?.title}}</label>
-                        <p>{{blogSet[2]?.description.substr(0,100)}}</p>
+                        <p class="description-block">{{blogSet[2]?.description.substr(0,100)}}...</p>
                             <a routerLink="/viewblog" (click) = "selectedBlog(blogSet[2])"  class="btn-card">Read</a>   
                     </div>
                 </div>

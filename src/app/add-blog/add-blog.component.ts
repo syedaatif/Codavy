@@ -85,7 +85,7 @@ export class AddBlogComponent implements OnInit {
 
         ['clean'],                                         // remove formatting button
 
-        [ 'link', 'image', 'video', 'formula' ], 
+        [ 'link', 'image', 'video', 'formula' ,'code-block'], 
         ['emoji'], 
       ],
       handlers: {'emoji': function() {}
