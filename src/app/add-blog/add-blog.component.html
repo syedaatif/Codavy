@@ -3,7 +3,7 @@
         <label for="usr" style="color:white;">Enter Title:</label>
         <input required type="text" class="form-control" id="usr" [(ngModel)]="title" >
         <div style="padding-top: 2em"></div>
-        <label style="color:white;">Select Title Image:(Max Size 50 Kb)</label>
+        <label style="color:white;">Select Title Image:(Max Size 50 Kb & Width : Height Ratio of 2:1)</label>
         <input class="form-control" type="file" (change)="onUploadChange($event)" accept=".png, .jpg, .jpeg" />
 <img style = "width: 300px; height: 300px" *ngFor="let item of base64textString"  src={{item}} alt="" id="img">
       </div>
@@ -24,7 +24,6 @@
 
   <div>
   </div>
-  {{htmlText}}
 </div>
 <label for="author" style="color:white;">Enter Author Name:</label>
         <input required type="text" class="form-control" id="author" [(ngModel)]="authorName" >

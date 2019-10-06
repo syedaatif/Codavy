@@ -2,14 +2,14 @@ import { Component, OnInit, ViewChild, ElementRef, OnChanges , AfterViewInit, Qu
 import { FormGroup, FormControl, Validators, FormsModule, } from '@angular/forms';
 import { HttpModule, Response, Headers, RequestOptions } from '@angular/http';
 import { CommonService } from './common.service';
+import { ParticlesConfig } from './particles-config';
+declare var particlesJS: any; 
 @Component({
   selector: 'app-blogs',
   templateUrl: './blogs.component.html',
   styleUrls: ['./blogs.component.scss']
 })
-@Directive({
-  selector: '[runDummyFunc]'
-})
+
 export class BlogsComponent implements OnInit, AfterViewInit, OnChanges {
   @ViewChild('view0', { read: ElementRef, static: false }) view0:ElementRef;
   @ViewChildren('items') items: QueryList<ElementRef>;
@@ -29,8 +29,9 @@ export class BlogsComponent implements OnInit, AfterViewInit, OnChanges {
   message;
 
   ngOnInit() {
+    this.invokeParticles();
     this.newService.GetUser().subscribe(data => {this.Repdata = data;
-            if (this.Repdata !== undefined) {
+                                                 if (this.Repdata !== undefined) {
         this.Repdata.forEach((element, i) => {
           this.allBlogs.blogs[i] = {title: "", description: "", date: "" , content: "", id : ""};
           this.allBlogs.blogs[i].title = element.title ;
@@ -41,10 +42,10 @@ export class BlogsComponent implements OnInit, AfterViewInit, OnChanges {
           this.allBlogs.blogs[i].titleImage = element.titleImage;
           this.allBlogs.blogs[i].authorName = element.authorName;
           }); 
-          let count = 0;
-          let triplets = [];
-          let numberOfBlogs = this.allBlogs.blogs.length;
-          this.allBlogs.blogs.forEach((blog,index) => {
+        let count = 0;
+        let triplets = [];
+        let numberOfBlogs = this.allBlogs.blogs.length;
+        this.allBlogs.blogs.forEach((blog,index) => {
             if(numberOfBlogs > 3) {
               if(count <3) {
               
@@ -66,14 +67,14 @@ export class BlogsComponent implements OnInit, AfterViewInit, OnChanges {
             } else {
               
               this.allBlogsSets.push([]);
-                this.allBlogsSets[0].push(blog);
+              this.allBlogsSets[0].push(blog);
             }
             this.allBlogsSets.forEach((blogSet,index) => {
               if(blogSet.length === 0) {
                 this.allBlogsSets.splice(index,1);
               }
             });
-            console.log(this.allBlogsSets);
+            // console.log(this.allBlogsSets);
            
            
           });
@@ -95,11 +96,16 @@ export class BlogsComponent implements OnInit, AfterViewInit, OnChanges {
   selectedBlog(blog) {
 this.newService.activeBlogStore(blog);
   }
+  public invokeParticles(): void {
+    particlesJS('particles-js', ParticlesConfig, function() {
+      console.log('callback - particles.js config loaded');
+    });
+  }
 
 
 ngOnChanges() {
   this.newService.GetUser().subscribe(data => {this.Repdata = data;
-    if (this.Repdata !== undefined) {
+                                               if (this.Repdata !== undefined) {
       this.Repdata.forEach((element, i) => {
         this.allBlogs.blogs[i] = {title: "", description: "", date: "" , content: "", id: ""};
         this.allBlogs.blogs[i].title = element.title ;
@@ -112,7 +118,7 @@ ngOnChanges() {
         }); 
     }
    
-    console.log(this.Repdata);
+                                               console.log(this.Repdata);
   });
 }
 

@@ -11,13 +11,13 @@ import { CommonService } from '../blogs/common.service';
 export class MaintainBlogsComponent implements OnInit {
 
   constructor(public newService: CommonService) { }
-  Repdata;
+  public Repdata;
   valbutton = 'Save';
 
   ngOnInit() {
     this.newService.GetUser().subscribe(data => {this.Repdata = data;});
   }
-  onSave = function (user, isValid: boolean) {
+  onSave = function (user, isValid?: boolean) {
     user.mode = this.valbutton;
     user.date = new Date().toString();
     console.log(user);
@@ -30,13 +30,14 @@ export class MaintainBlogsComponent implements OnInit {
         , error => this.errorMessage = error)
 
   }
-  edit = function (kk) {
+  public edit (kk) {
 console.log(kk);
-    this.id = kk._id;
-    this.title = kk.title;
-    this.description = kk.description;
-    this.content = kk.content;
-    this.date = new Date();
+    this.Repdata.id = kk._id;
+    this.Repdata.title = kk.title;
+    this.Repdata.description = kk.description;
+    this.Repdata.content = kk.content;
+    this.Repdata.titleImage = kk.titleImage;
+    this.Repdata.date = new Date();
     this.valbutton = 'Update';
   }
 

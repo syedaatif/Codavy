@@ -4,8 +4,8 @@
         <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
             <div class="intro">
                 <h1 class="text-center">{{selectedBlog.title}}</h1>
-                <p class="text-center"><span class="by">by</span> <a href="#">{{selectedBlog.authorName}}</a><span class="date">{{selectedBlog.date.split("T")[0]}} </span></p></div>
-                <img   src={{selectedBlog.titleImage}} alt="">
+                <p class="text-center"><span class="by">by {{selectedBlog.authorName}}</span> <span class="date">{{selectedBlog?.date?.split("T")[0]}} </span></p></div>
+                <img style="width: inherit"   src={{selectedBlog.titleImage}} alt="">
                 <div id="blogContent" style="font-size: 21px" >
                
             </div>

@@ -3,26 +3,31 @@
     <table border='1'>
       <tr>
         <td>Title</td>
+        <td>Image</td>
+        <td>Author Name</td>
         <td>
-          <input name="id" type="hidden" [(ngModel)]="id" />
-          <input name="title" type="text" required [(ngModel)]="title" />
-          <input name="date" type="hidden" [(ngModel)]="date" />
+          <input name="id" type="hidden" [(ngModel)]="Repdata.id" />
+          <input name="title" type="text" required [(ngModel)]="Repdata.title" />
+          <input name="date" type="hidden" [(ngModel)]="Repdata.date" />
+         
           
   
         </td>
+        <td> <input name="titleImage" type="text" [(ngModel)]="Repdata.titleImage"/></td>
+        <input name="authorName" type="text" [(ngModel)]="Repdata.authorName"/>
       </tr>
   
       <tr>
         <td>Description</td>
         <td>
-          <input name="description" required type="text" [(ngModel)]="description" />
+          <input name="description" required type="text" [(ngModel)]="Repdata.description" />
         </td>
       </tr>
 
       <tr>
         <td>content</td>
         <td>
-          <input name="content" type="text" required [(ngModel)]="content"  />
+          <input name="content" type="text" required [(ngModel)]="Repdata.content"  />
         </td>
       </tr>
 

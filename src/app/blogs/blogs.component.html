@@ -37,15 +37,20 @@
         </a>
     </div>
     -->
+    <div style="padding-top: 1em"></div>
+    <div style="text-align: center; background-color: #212529 ;width: max-content;
+    margin: auto;" class="alert alert-dark" role="alert">
 
-    <div style="padding-top: 2em"></div>
-  
-    <div style="padding-top: 2em"></div>
+<a href="#" style="color: white" routerLink="/addblogs" class="alert-link">Publish a new Post</a>
+  </div>
+    <div style="padding-top: 1em"></div>
+<!-- <span> <a class="nav-link" routerLink="/addblogs" >Publish a new Post</a></span> -->
 
-    <div class="container text-center"> <span style = "color: white; font-family: cursive;
+   
+    <div class="container text-center"> <span style = "color: white;
       font-size: x-large;" class="label label-default" >Latest Posts:</span></div>
  
-  <div style="cursor: pointer;text-align: center; text-align:-webkit-center;" id="demo" class="container carousel slide" data-ride="carousel" *ngIf="allBlogsSetws != 0">
+  <div  style="cursor: pointer;text-align: center; text-align:-webkit-center;"  class="container carousel slide" data-ride="carousel" *ngIf="allBlogsSets.length != 0">
       <ol class="carousel-indicators" >
           <li data-target="#demo" *ngFor="let blogSet of allBlogsSets; let blogIndex=index" [attr.data-slide-to]="blogIndex"  [ngClass]="blogIndex == 0 ? 'active' : ''"></li>
         </ol>
@@ -54,10 +59,12 @@
             <section class="details-card">
                 <div class="container">
                     <div class="row">
-            <div class="col-md-4" *ngIf="blogSet[0]">
+            <div style = "margin-top: 10px" class="col-md-4" *ngIf="blogSet[0]">
                 <div class="card-content">
                     <div class="card-img max-height-20">
-                        <img src={{blogSet[0]?.titleImage}} alt="">
+                      {{blogSet[0]?.titleImage?.length}}
+                        <img *ngIf="blogSet[0]?.titleImage?.length >0" src={{blogSet[0]?.titleImage}} alt="">
+                        <img *ngIf="blogSet[0]?.titleImage?.length <2" src="/assets/default.PNG" alt="">
                        
                     </div>
                     <div class="card-desc min-max-height">
@@ -67,11 +74,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4" *ngIf="blogSet[1]">
+            <div  style = "margin-top: 10px" class="col-md-4" *ngIf="blogSet[1]">
                 <div class="card-content">
                     <div class="card-img max-height-20">
-                        <img src={{blogSet[1]?.titleImage}} alt="">
-                        
+                        <img *ngIf="blogSet[1]?.titleImage?.length >0" src={{blogSet[1]?.titleImage}} alt="">
+                        <img *ngIf="blogSet[1]?.titleImage?.length <2" src="/assets/default.PNG" alt="">
                     </div>
                     <div class="card-desc min-max-height">
                         <label class="blog-title-label">{{blogSet[1]?.title}}</label>
@@ -80,10 +87,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4" *ngIf="blogSet[2]">
+            <div style = "margin-top: 10px" class="col-md-4" *ngIf="blogSet[2]">
                 <div class="card-content">
                     <div class="card-img max-height-20">
-                        <img src={{blogSet[2]?.titleImage}} alt="">
+                        <img *ngIf="blogSet[2]?.titleImage?.length >0" src={{blogSet[2]?.titleImage}} alt="">
+                        <img *ngIf="blogSet[2]?.titleImage?.length <2" src="/assets/default.PNG" alt="">
                        
                     </div>
                     <div class="card-desc min-max-height">
@@ -106,3 +114,4 @@
           <span class="carousel-control-next-icon"></span>
         </a>
     </div>
+    <div class="footer">Codavy :Blogs,Articles,Technology @2019</div>
