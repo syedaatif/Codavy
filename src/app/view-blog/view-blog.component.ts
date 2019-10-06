@@ -1,5 +1,6 @@
 import { Component, OnInit,AfterViewInit, ViewEncapsulation } from '@angular/core';
- import { CommonService } from '../blogs/common.service';
+import { CommonService } from '../blogs/common.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-view-blog',
@@ -10,12 +11,30 @@ import { Component, OnInit,AfterViewInit, ViewEncapsulation } from '@angular/cor
 export class ViewBlogComponent implements OnInit {
 public Repdata;
 public selectedBlog;
-  constructor(public newService: CommonService) { }
+public shareLink: string = '';
+  constructor(public newService: CommonService, private route: ActivatedRoute) { }
   public allBlogs: IBlogs = {blogs:[{title: "", description: "", date: "" , content: "", id: "", titleImage: "", authorName: ""}]};
   ngOnInit() {
-    this.selectedBlog = this.newService.activeBlogRetrieve();
+    const id = this.route.snapshot.paramMap.get('id');
+    console.log(id);
+    if (id && id.length > 0) {
+      this.newService.GetUser().subscribe(data => {
+        console.log(data);
+        data.forEach((element, i) => { 
+          console.log(id.replace(/ /g, ""), element.title);
+          if(element.title.replace(/ /g, "") === id.replace(/ /g, "")) {
+                this.selectedBlog = element;
+                document.getElementById("blogContent").innerHTML = this.selectedBlog.content;
+          }
+        });
+       });
+    } else {
+     this.selectedBlog = this.newService.activeBlogRetrieve();
+     document.getElementById("blogContent").innerHTML = this.selectedBlog.content;
+    }
+   
     console.log(this.selectedBlog);
-    document.getElementById("blogContent").innerHTML = this.selectedBlog.content;
+    
     // this.newService.currentMessage.subscribe(message => this.selectedBlog = message);
   //  this.selectedBlog = this.newService.activeBlogRetrieve();
     // this.newService.GetUser().subscribe(data => {this.Repdata = data;
@@ -32,9 +51,8 @@ public selectedBlog;
     //   }
     // });
   }
-  trigger() {
-    this.selectedBlog = this.newService.activeBlogRetrieve();
-    // console.log(this.newService.activeBlogRetrieve());
+  public generateLink() {
+   this.shareLink  = 'https://www.codavy.com/viewblog/' + this.selectedBlog.title.replace(/ /g, "") ;
   }
 
 }

@@ -32,6 +32,7 @@ export class BlogsComponent implements OnInit, AfterViewInit, OnChanges {
     this.invokeParticles();
     this.newService.GetUser().subscribe(data => {this.Repdata = data;
                                                  if (this.Repdata !== undefined) {
+
         this.Repdata.forEach((element, i) => {
           this.allBlogs.blogs[i] = {title: "", description: "", date: "" , content: "", id : ""};
           this.allBlogs.blogs[i].title = element.title ;

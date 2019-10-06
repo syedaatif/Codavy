@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: '', component: BlogsComponent },
   { path: 'maintainblogs', component: MaintainBlogsComponent },
   { path: 'addblogs', component: AddBlogComponent },
-  { path: 'viewblog', component: ViewBlogComponent },
+  { path: 'viewblog', component: ViewBlogComponent},
+  {path: 'viewblog/:id', component: ViewBlogComponent},
   {path: 'aboutme', component: AboutMeComponent}
 ];
 

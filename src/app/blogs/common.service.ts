@@ -25,10 +25,12 @@ export class CommonService {
   }
   activeBlogStore(blog) {
 this.selectedBlogItem = blog;
+localStorage.setItem("blogItem", JSON.stringify(this.selectedBlogItem));
 console.log(this.selectedBlogItem);
   }
   activeBlogRetrieve() {
-    return this.selectedBlogItem;
+
+    return JSON.parse(localStorage.getItem("blogItem"));
       }
 
 }

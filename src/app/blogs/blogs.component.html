@@ -50,9 +50,9 @@
     <div class="container text-center"> <span style = "color: white;
       font-size: x-large;" class="label label-default" >Latest Posts:</span></div>
  
-  <div  style="cursor: pointer;text-align: center; text-align:-webkit-center;"  class="container carousel slide" data-ride="carousel" *ngIf="allBlogsSets.length != 0">
+  <div  style="cursor: pointer;text-align: center; text-align:-webkit-center;"  class="container carousel slide" data-ride="carousel" data-interval="false" *ngIf="allBlogsSets.length != 0" id="home">
       <ol class="carousel-indicators" >
-          <li data-target="#demo" *ngFor="let blogSet of allBlogsSets; let blogIndex=index" [attr.data-slide-to]="blogIndex"  [ngClass]="blogIndex == 0 ? 'active' : ''"></li>
+          <li data-target="#home" *ngFor="let blogSet of allBlogsSets; let blogIndex=index" [attr.data-slide-to]="blogIndex"  [ngClass]="blogIndex == 0 ? 'active' : ''"></li>
         </ol>
       <div class="row carousel-inner">
           <div   #blogItems *ngFor="let blogSet of allBlogsSets; let blogIndex=index"[ngClass]="blogIndex == 0 ? 'col-sm carousel-item active' : 'col-sm carousel-item'">
@@ -62,7 +62,6 @@
             <div style = "margin-top: 10px" class="col-md-4" *ngIf="blogSet[0]">
                 <div class="card-content">
                     <div class="card-img max-height-20">
-                      {{blogSet[0]?.titleImage?.length}}
                         <img *ngIf="blogSet[0]?.titleImage?.length >0" src={{blogSet[0]?.titleImage}} alt="">
                         <img *ngIf="blogSet[0]?.titleImage?.length <2" src="/assets/default.PNG" alt="">
                        
@@ -107,10 +106,10 @@
               
           </div>
       </div>
-      <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <a class="carousel-control-prev" href="#home" data-slide="prev">
           <span class="carousel-control-prev-icon"></span>
         </a>
-        <a class="carousel-control-next" href="#demo" data-slide="next">
+        <a class="carousel-control-next" href="#home" data-slide="next">
           <span class="carousel-control-next-icon"></span>
         </a>
     </div>
