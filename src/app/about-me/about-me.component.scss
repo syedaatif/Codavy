@@ -1,6 +1,28 @@
+
 .corn-color {
     color: cornsilk
 }
+.user-card {
+    border: 2px solid white;
+    border-radius: 5px;
+    text-align: center;
+    background-image: linear-gradient(darkslategrey,black);
+}
+.user {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    margin-top: 10px;
+  }
+  .about-me-row {
+    background-image: linear-gradient(darkslategrey,rgb(22, 24, 21));
+    border-radius: 5px;
+  }
 // .width-min-content {
 //     width: min-content;
 // }
@@ -8,17 +30,19 @@
 .social-media {
     ul{
         position: relative;
-        top: 20%;
-        left: 40%;
-        transform: translate(-50%, -50%);
-        margin: 15px;
-        padding: 0;
-        display: flex;
+    /* top: 20%; */
+    /* left: 40%; */
+    // -webkit-transform: translate(-50%, -50%);
+    // transform: translate(-50%, -50%);
+    margin-top: 40px;
+    /* padding: 0; */
+    display: flex;
         
         }
         ul li{
         list-style: none;
-        margin: 0 40px;
+        margin-left: 20px;
+        margin-right: 10px;
         
         }
         ul li .fa{

@@ -64,9 +64,9 @@ export class RadialChartComponent implements OnInit {
       .outerRadius(this.chartWidth / 2.647)
       .startAngle(0).endAngle(this.getCircumference(1));
      
-      this.appendPathOnSVG(innerArc, translate, '#E7B329');
+      this.appendPathOnSVG(innerArc, translate, 'slategrey');
       this.appendPathOnSVG(fullCircle, translate, '#212529');
-      this.appendPathOnSVG(percentageCircle, translate, '#E7B329', 'percentageCircle');
+      this.appendPathOnSVG(percentageCircle, translate, 'darkslategray', 'percentageCircle');
       
     
   }
